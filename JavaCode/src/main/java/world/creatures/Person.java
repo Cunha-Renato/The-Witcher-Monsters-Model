@@ -52,6 +52,7 @@ public class Person
     {
         return bornDate;
     }
+    public void setBornDate(Date date) {this.bornDate = date;}
 
     public Specter getGhost() 
     {
@@ -70,13 +71,13 @@ public class Person
         {
             Random rand = new Random();
 
-            if(rand.nextInt(100) <= 30)
+            if(rand.nextInt(100) <= 100)
             {
                 int deathHour = deathDate.getTime().getHours();
 
-                if(deathHour < 19 && deathHour < 12 && location.getArea() == "rural")
+                if((deathHour < 19 && deathHour >= 6) && location.getArea() == "Rural")
                     ghost = new NoonWraith();
-                else if(deathHour < 6 || deathHour > 19 && location.getArea() == "rural")
+                else if((deathHour < 6 || deathHour >= 19) && location.getArea() == "Rural")
                     ghost = new NightWraith();
                 else
                     ghost = new Wraith();
