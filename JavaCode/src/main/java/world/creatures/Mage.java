@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import world.Date;
+import world.Location;
 import world.ElementsEnum;
 
 public class Mage extends Person
 {
     private List<Construct> controledBeings;
 
-    public Mage(String name, String race, Date bornDate, Date deathDate)
+    public Mage(String name, String race, Location location, Date bornDate, Date deathDate)
     {
-        super(name, race, bornDate, deathDate);
+        super(name, race, location, bornDate, deathDate);
         controledBeings = new ArrayList<Construct>();
     }
 
@@ -28,6 +29,9 @@ public class Mage extends Person
         
         else if(subSpecie == "Gargoyle")
             controledBeings.add(new Gargoyle(this));   
+
+        else 
+            controledBeings.add(new Golem(this));
     }
 
     public void infuseConstruct(ElementsEnum element)

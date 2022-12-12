@@ -5,6 +5,13 @@ public class Location
     private String name;
     private String area; //Urban or Rural
     
+    public Location(){}
+    public Location(String name, String area)
+    {
+        this.name = name;
+        this.area = area;
+    }
+
     public String getName() 
     {
         return name;

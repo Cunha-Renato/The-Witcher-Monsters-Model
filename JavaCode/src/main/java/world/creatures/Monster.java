@@ -21,13 +21,7 @@ public abstract class Monster
         weakOils = new ArrayList<OilsEnum>();
         weakSigns = new ArrayList<SignsEnum>();
     }
-    protected Monster(String subSpecie, List<BombsEnum> weakBombs, List<OilsEnum> weakOils, List<SignsEnum> weakSigns)
-    {
-        this.subSpecie = subSpecie;
-        this.weakBombs = weakBombs;
-        this.weakOils = weakOils;
-        this.weakSigns = weakSigns;
-    }
+    
     public String getSubSpecie() 
     {
         return subSpecie;

@@ -3,11 +3,13 @@ package world.creatures;
 import java.util.Random;
 
 import world.Date;
+import world.Location;
 
 public class Person 
 {
     private String name;
     private String race;
+    private Location location;
     private Date bornDate;
     private Date deathDate;
     private Specter ghost;
@@ -16,14 +18,16 @@ public class Person
     {
         name = " ";
         race = " ";
+        location = null;
         bornDate = null;
         deathDate = null;
         ghost = null;
     }
-    public Person(String name, String race, Date bornDate, Date deathDate)
+    public Person(String name, String race, Location location, Date bornDate, Date deathDate)
     {
         this.name = name;
         this.race = race;
+        this.location = location;
         this.bornDate = bornDate;
         ghost = null;
 
@@ -70,9 +74,9 @@ public class Person
             {
                 int deathHour = deathDate.getTime().getHours();
 
-                if(deathHour < 19 && deathHour < 12)
+                if(deathHour < 19 && deathHour < 12 && location.getArea() == "rural")
                     ghost = new NoonWraith();
-                else if(deathHour < 6 || deathHour > 19)
+                else if(deathHour < 6 || deathHour > 19 && location.getArea() == "rural")
                     ghost = new NightWraith();
                 else
                     ghost = new Wraith();
@@ -81,4 +85,7 @@ public class Person
             }
         }
     }
+    
+    public Location geLocation() {return location;}
+    public void setLocation(Location location) {this.location = location;}
 }
