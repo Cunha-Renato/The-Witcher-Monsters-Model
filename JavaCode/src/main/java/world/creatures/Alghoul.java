@@ -4,14 +4,15 @@ import world.BombsEnum;
 import world.Location;
 import world.SignsEnum;
 
-public class WaterHag extends Necrophage
+public class Alghoul extends Necrophage
 {
-    public WaterHag(Location location)
+    public Alghoul(Location location)
     {
         super(location);
-        setSubSpecie("WaterHag");
+        setSubSpecie("Alghoul");
 
         getWeakBombs().add(BombsEnum.NORTHERN_WIND);
-        getWeakSigns().add(SignsEnum.QUEN);
+        getWeakSigns().clear();
+        getWeakSigns().add(SignsEnum.AXII);
     }
 }

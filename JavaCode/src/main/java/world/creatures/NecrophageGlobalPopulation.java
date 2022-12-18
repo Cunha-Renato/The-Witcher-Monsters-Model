@@ -6,18 +6,17 @@ import java.util.List;
 public class NecrophageGlobalPopulation 
 {
     private static List<Necrophage> members = new ArrayList<Necrophage>();
-
     private static List<NecrophageHuntingGroup> group = new ArrayList<NecrophageHuntingGroup>();
 
-    private boolean groupExists(Necrophage subject)
+    private int groupExists(Necrophage subject)
     {
         String aux = subject.getLocation().getName();
 
         for(NecrophageHuntingGroup nhg : group)
             if(nhg.getAreaName() == aux)
-                return true;
+                return group.indexOf(nhg);
         
-        return false;
+        return -1;
     }
 
     private void addToGroup(Necrophage subject)
@@ -30,14 +29,15 @@ public class NecrophageGlobalPopulation
                 nhg.add(subject);
                 break;
             }
-        
     }
 
     protected void add(Necrophage subject)
     {
+        int index = groupExists(subject);
+
         members.add(subject);
 
-        if(!groupExists(subject))
+        if(index == -1)
             group.add(new NecrophageHuntingGroup(subject.getLocation().getName()));
         
         addToGroup(subject);
@@ -49,12 +49,12 @@ public class NecrophageGlobalPopulation
 
     protected List<Necrophage> getGroup(Necrophage subject)
     {
-        String aux = subject.getLocation().getName();
+        int index = groupExists(subject);
 
-        for(NecrophageHuntingGroup nhg : group)
-            if(nhg.getAreaName() == aux)
-                return nhg.getList();
+        if(index != -1)
+            return group.get(index).getList();
 
         return null;
     }
+    protected List<Necrophage> getPopulation() {return members;}
 }

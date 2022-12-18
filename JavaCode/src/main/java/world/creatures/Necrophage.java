@@ -28,4 +28,5 @@ public abstract class Necrophage extends Monster
     public void setLocation(Location location) {this.location = location;}
 
     public List<Necrophage> getGroup() {return globalPopulation.getGroup(this);}
+    public List<Necrophage> getPopulation() {return globalPopulation.getPopulation();}
 }

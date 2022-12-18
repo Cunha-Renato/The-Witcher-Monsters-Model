@@ -14,14 +14,26 @@ public class App
         Drowner m2 = new Drowner(new Location("SP", "Rural"));
         Drowner m3 = new Drowner(m1.getLocation());
         WaterHag m4 = new WaterHag(m2.getLocation());
+        Ghoul m5 = new Ghoul(new Location("Novigrad", "urban"));
+        Alghoul m6 = new Alghoul(m5.getLocation());
 
-        System.out.println("In Itajuba there are: ");
+        System.out.println("\nThe Necrophages in the world are: ");
+        for(Necrophage a : m1.getPopulation())
+            System.out.println(a.getSubSpecie());
+
+        System.out.println("\nIn Itajuba there are: ");
         for(Necrophage a : m3.getGroup())
             System.out.println(a.getSubSpecie());
         
         System.out.println("\nIn SP there are: ");
         for(Necrophage a : m4.getGroup())
             System.out.println(a.getSubSpecie());
+
+        System.out.println("\nIn Novigrad there are: ");
+        for(Necrophage a : m6.getGroup())
+            System.out.println(a.getSubSpecie());
+
+            
 
         System.out.println("\n-----------------------------------------------------------------------\n");
 //----------------------------------------------------------------------------------------------------------------------------------
