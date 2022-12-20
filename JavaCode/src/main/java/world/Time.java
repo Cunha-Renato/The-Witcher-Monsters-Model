@@ -46,5 +46,4 @@ public class Time
         this.seconds = seconds;
     }
 
-    
 }
